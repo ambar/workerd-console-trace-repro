@@ -23,11 +23,11 @@ The native `spanOpen` event independently associates this span with A's trace. T
 
 ## Proposed fix
 
-[Preview branch](https://github.com/ambar/workerd/tree/codex/fix-do-log-trace-context) · [Fix commit](https://github.com/ambar/workerd/commit/75cd50267f4570a2fda1f8e54171d14564004323)
+[Preview branch](https://github.com/ambar/workerd/tree/codex/fix-do-log-trace-context) · [Fix commit](https://github.com/ambar/workerd/commit/b1a4ac0581688b24c5992d739ed49f4feb5f2d9a)
 
 The patch makes `IoContext::getWorkerTracer()` and `getInvocationSpanContext()` read the existing request-specific `UserTraceAsyncContext`. Nested spans inherit the originating async context, while invocation entry starts from its incoming request. The tracer remains weak, cross-IoContext access is checked, and GC logging paths establish a handle scope.
 
-The upstream regression test added by the patch covers serial execution and three overlap orders (A completes first, A fails first, B completes first), including nested-span restoration and diagnostic events. 33 distinct related runtime test targets and the new test's ESLint target passed. No upstream PR has been submitted as part of this preview.
+The workerd regression test added by the patch covers serial execution and three overlap orders (A completes first, A fails first, B completes first), including nested-span restoration and diagnostic events. 33 distinct related runtime test targets and the new test's ESLint target passed. No upstream PR has been submitted as part of this preview.
 
 ## Background-task lifecycle regression and correction
 
@@ -83,7 +83,7 @@ Thus wrong-request attribution predates September 29, while September 29 is the 
 
 - Pinned source base: `ea98c6103bd34bfca4a20bd5c6c52bf4c15a5c59`.
 - Official release tag: `v1.20261015.1` (`fc3b0fe23cc395c167e546f5bac3120c0181a821`). Only compatibility-date source files differ from the pinned base; the relevant tracing/RPC code is identical.
-- Proposed fix: `75cd50267f4570a2fda1f8e54171d14564004323` on that base. The initial fix and the background-lifecycle correction are separate commits; both use the GitHub account's noreply identity.
+- Proposed fix: `b1a4ac0581688b24c5992d739ed49f4feb5f2d9a` on that base. The initial fix and the background-lifecycle correction are squashed into one commit using the GitHub account's noreply identity. Its source tree is identical to the validated pre-squash tree (`f98515ea0eae028f90db87020d11f87c3cefc0df`), so the test and binary results below are unchanged.
 
 The source-built runtimes used Bazel 9.3.0 and target `//src/workerd/server:workerd`. Local build options were:
 
