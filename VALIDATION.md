@@ -23,11 +23,29 @@ The native `spanOpen` event independently associates this span with A's trace. T
 
 ## Proposed fix
 
-[Preview branch](https://github.com/ambar/workerd/tree/codex/fix-do-log-trace-context) · [Fix commit](https://github.com/ambar/workerd/commit/b12fba00383c0ee52fcd603dbff9121537f97142)
+[Preview branch](https://github.com/ambar/workerd/tree/codex/fix-do-log-trace-context) · [Fix commit](https://github.com/ambar/workerd/commit/75cd50267f4570a2fda1f8e54171d14564004323)
 
 The patch makes `IoContext::getWorkerTracer()` and `getInvocationSpanContext()` read the existing request-specific `UserTraceAsyncContext`. Nested spans inherit the originating async context, while invocation entry starts from its incoming request. The tracer remains weak, cross-IoContext access is checked, and GC logging paths establish a handle scope.
 
-The upstream regression test added by the patch covers serial execution and three overlap orders (A completes first, A fails first, B completes first), including nested-span restoration and diagnostic events. Ten related runtime test targets and the new test's ESLint target passed. No upstream PR has been submitted as part of this preview.
+The upstream regression test added by the patch covers serial execution and three overlap orders (A completes first, A fails first, B completes first), including nested-span restoration and diagnostic events. 33 distinct related runtime test targets and the new test's ESLint target passed. No upstream PR has been submitted as part of this preview.
+
+## Background-task lifecycle regression and correction
+
+Review of the first preview commit (`b12fba00383c0ee52fcd603dbff9121537f97142`) found that a captured weak tracer could expire while a Durable Object background task remained live. The initial patch returned no tracer in that case and silently dropped subsequent console logs.
+
+The follow-up fix distinguishes an expired tracer from a frame that was never traced. A live originating tracer retains its original request context. When that tracer has ended, the tracer, invocation IDs, and span parent fall back together to the current incoming request, which owns the object's continuing background work. This does not reopen a closed trace or extend its lifetime with a strong reference. Deliberately untraced frames remain untraced.
+
+A deterministic test makes A register a `waitUntil()` callback on an object-local Promise and return. B enters; the test waits for A's tail outcome before B releases A's callback. The callback logs, creates a nested span, publishes a diagnostic event, and signals completion while B remains active. Native span ownership and receiving invocation/stream are checked throughout.
+
+| Independent background probe | Logs emitted | Logs captured | Background completion confirmed |
+|---|---:|---:|---|
+| Official release | 4 | 4 (continuation attributed to B) | Yes |
+| Initial preview fix | 4 | 3 | Yes |
+| Updated fix | 4 | 4 (consistent B/B native context) | Yes |
+
+This completed-request fallback differs from the main reproduction, where A's trace is still live and both API and console must retain A/A. The main reproduction still reports zero console mismatches on the updated fix.
+
+The expanded `do-log-attribution-test@` first failed on the initial preview at its log-completeness assertion, then passed with the lifecycle fix. Default, all-compatibility-flags, all-autogates, and GC-stress variants pass, covering 46 logs and nine diagnostic events. The broader suite also covers tracing hierarchy, RPC callbacks/pipelines, ordinary tail delivery, structured errors, async_hooks/AsyncResource, and foreign-context GC. This is bounded regression evidence, not a claim about every production configuration or performance.
 
 ## Relationship to upstream #7578
 
@@ -65,7 +83,7 @@ Thus wrong-request attribution predates September 29, while September 29 is the 
 
 - Pinned source base: `ea98c6103bd34bfca4a20bd5c6c52bf4c15a5c59`.
 - Official release tag: `v1.20261015.1` (`fc3b0fe23cc395c167e546f5bac3120c0181a821`). Only compatibility-date source files differ from the pinned base; the relevant tracing/RPC code is identical.
-- Proposed fix: `b12fba00383c0ee52fcd603dbff9121537f97142` on that base. The source tree is identical to the tested fix; only commit author metadata was changed to the GitHub account's noreply identity before publication.
+- Proposed fix: `75cd50267f4570a2fda1f8e54171d14564004323` on that base. The initial fix and the background-lifecycle correction are separate commits; both use the GitHub account's noreply identity.
 
 The source-built runtimes used Bazel 9.3.0 and target `//src/workerd/server:workerd`. Local build options were:
 
@@ -80,6 +98,6 @@ Binary SHA-256 values are included in each evidence file:
 
 - Official 1.20261015.1: `64dad95c963694864b26dd62fa5d0636974f7840f81691fe42d456f435a3e0d1`.
 - Pinned base + upstream #7578: `7898b7a4670a7ec6e4d4841fa198543fc5f81ea4bcf8fdb0fabf7c87423ce1a2`.
-- Pinned base + proposed fix: `80bbb263313bcb7d16a01ef2ed1e7066b4a7b19cefb419207c280477ef6b41ac`.
+- Pinned base + proposed fix: `93a9db728491d7dd54c66c31b3100503258e3d11555ac5a7fd8eb7bc0530d69f`.
 
 Committed evidence contains only synthetic local events. No production logs, request headers, account configuration, filesystem paths, or credentials are included.
