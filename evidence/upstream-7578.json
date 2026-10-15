@@ -1,0 +1,519 @@
+{
+  "runtime": "workerd 2026-10-15",
+  "binarySha256": "7898b7a4670a7ec6e4d4841fa198543fc5f81ea4bcf8fdb0fabf7c87423ce1a2",
+  "logs": 4,
+  "apiErrors": 0,
+  "consoleMismatches": 1,
+  "wrongInvocations": 1,
+  "wrongStreams": 1,
+  "rows": [
+    {
+      "id": "A",
+      "phase": "start",
+      "api": {
+        "traceId": "a5d487708bd9ee687e93c4d773d59107",
+        "spanId": "e816143b27415717",
+        "traceFlags": 0
+      },
+      "console": {
+        "traceId": "a5d487708bd9ee687e93c4d773d59107",
+        "spanId": "e816143b27415717"
+      },
+      "apiCorrect": true,
+      "consoleMismatch": false,
+      "wrongInvocation": false,
+      "wrongStream": false
+    },
+    {
+      "id": "B",
+      "phase": "start",
+      "api": {
+        "traceId": "6bf43fcb396376b8ac569f31e7649ee5",
+        "spanId": "906b534273cbe65e",
+        "traceFlags": 0
+      },
+      "console": {
+        "traceId": "6bf43fcb396376b8ac569f31e7649ee5",
+        "spanId": "906b534273cbe65e"
+      },
+      "apiCorrect": true,
+      "consoleMismatch": false,
+      "wrongInvocation": false,
+      "wrongStream": false
+    },
+    {
+      "id": "A",
+      "phase": "resume",
+      "api": {
+        "traceId": "a5d487708bd9ee687e93c4d773d59107",
+        "spanId": "e816143b27415717",
+        "traceFlags": 0
+      },
+      "console": {
+        "traceId": "6bf43fcb396376b8ac569f31e7649ee5",
+        "spanId": "e816143b27415717"
+      },
+      "apiCorrect": true,
+      "consoleMismatch": true,
+      "wrongInvocation": true,
+      "wrongStream": true
+    },
+    {
+      "id": "B",
+      "phase": "resume",
+      "api": {
+        "traceId": "6bf43fcb396376b8ac569f31e7649ee5",
+        "spanId": "906b534273cbe65e",
+        "traceFlags": 0
+      },
+      "console": {
+        "traceId": "6bf43fcb396376b8ac569f31e7649ee5",
+        "spanId": "906b534273cbe65e"
+      },
+      "apiCorrect": true,
+      "consoleMismatch": false,
+      "wrongInvocation": false,
+      "wrongStream": false
+    }
+  ],
+  "events": [
+    {
+      "type": "onset",
+      "spanContext": {
+        "traceId": "a5d487708bd9ee687e93c4d773d59107"
+      },
+      "invocationId": "b392ddce46b77759a59407e413e2ac84",
+      "streamInvocation": "b392ddce46b77759a59407e413e2ac84",
+      "spanId": "2fff4b66e1ed0344"
+    },
+    {
+      "type": "onset",
+      "spanContext": {
+        "traceId": "a5d487708bd9ee687e93c4d773d59107",
+        "spanId": "4a5f5ed7d41d800a"
+      },
+      "invocationId": "0d6786f0e8e42f97d7ca0c2e9a6eb0ce",
+      "streamInvocation": "0d6786f0e8e42f97d7ca0c2e9a6eb0ce",
+      "spanId": "3da564aed7531a46"
+    },
+    {
+      "type": "spanOpen",
+      "spanContext": {
+        "traceId": "a5d487708bd9ee687e93c4d773d59107",
+        "spanId": "2fff4b66e1ed0344"
+      },
+      "invocationId": "b392ddce46b77759a59407e413e2ac84",
+      "streamInvocation": "b392ddce46b77759a59407e413e2ac84",
+      "spanId": "d02c189c81d196b0"
+    },
+    {
+      "type": "spanOpen",
+      "spanContext": {
+        "traceId": "a5d487708bd9ee687e93c4d773d59107",
+        "spanId": "d02c189c81d196b0"
+      },
+      "invocationId": "b392ddce46b77759a59407e413e2ac84",
+      "streamInvocation": "b392ddce46b77759a59407e413e2ac84",
+      "spanId": "301fe10070474751"
+    },
+    {
+      "type": "spanOpen",
+      "spanContext": {
+        "traceId": "a5d487708bd9ee687e93c4d773d59107",
+        "spanId": "301fe10070474751"
+      },
+      "invocationId": "b392ddce46b77759a59407e413e2ac84",
+      "streamInvocation": "b392ddce46b77759a59407e413e2ac84",
+      "spanId": "4a5f5ed7d41d800a"
+    },
+    {
+      "type": "spanOpen",
+      "spanContext": {
+        "traceId": "a5d487708bd9ee687e93c4d773d59107",
+        "spanId": "3da564aed7531a46"
+      },
+      "invocationId": "0d6786f0e8e42f97d7ca0c2e9a6eb0ce",
+      "streamInvocation": "0d6786f0e8e42f97d7ca0c2e9a6eb0ce",
+      "spanId": "e816143b27415717"
+    },
+    {
+      "type": "attributes",
+      "spanContext": {
+        "traceId": "a5d487708bd9ee687e93c4d773d59107",
+        "spanId": "3da564aed7531a46"
+      },
+      "invocationId": "0d6786f0e8e42f97d7ca0c2e9a6eb0ce",
+      "streamInvocation": "0d6786f0e8e42f97d7ca0c2e9a6eb0ce"
+    },
+    {
+      "type": "log",
+      "spanContext": {
+        "traceId": "a5d487708bd9ee687e93c4d773d59107",
+        "spanId": "e816143b27415717"
+      },
+      "invocationId": "0d6786f0e8e42f97d7ca0c2e9a6eb0ce",
+      "streamInvocation": "0d6786f0e8e42f97d7ca0c2e9a6eb0ce",
+      "message": [
+        "{\"id\":\"A\",\"phase\":\"start\",\"api\":{\"traceId\":\"a5d487708bd9ee687e93c4d773d59107\",\"spanId\":\"e816143b27415717\",\"traceFlags\":0}}"
+      ]
+    },
+    {
+      "type": "spanOpen",
+      "spanContext": {
+        "traceId": "a5d487708bd9ee687e93c4d773d59107",
+        "spanId": "e816143b27415717"
+      },
+      "invocationId": "0d6786f0e8e42f97d7ca0c2e9a6eb0ce",
+      "streamInvocation": "0d6786f0e8e42f97d7ca0c2e9a6eb0ce",
+      "spanId": "507ccb54ddf62b89"
+    },
+    {
+      "type": "onset",
+      "spanContext": {
+        "traceId": "6bf43fcb396376b8ac569f31e7649ee5"
+      },
+      "invocationId": "c02e9a9b50d3e99b1b8900a84fa648e2",
+      "streamInvocation": "c02e9a9b50d3e99b1b8900a84fa648e2",
+      "spanId": "d3aa2a1a3a0bb1ae"
+    },
+    {
+      "type": "onset",
+      "spanContext": {
+        "traceId": "6bf43fcb396376b8ac569f31e7649ee5",
+        "spanId": "7d982c6f92d5f511"
+      },
+      "invocationId": "3ee90c9992b412f555222389ec710698",
+      "streamInvocation": "3ee90c9992b412f555222389ec710698",
+      "spanId": "3f80366f2c5f5289"
+    },
+    {
+      "type": "spanOpen",
+      "spanContext": {
+        "traceId": "6bf43fcb396376b8ac569f31e7649ee5",
+        "spanId": "d3aa2a1a3a0bb1ae"
+      },
+      "invocationId": "c02e9a9b50d3e99b1b8900a84fa648e2",
+      "streamInvocation": "c02e9a9b50d3e99b1b8900a84fa648e2",
+      "spanId": "a3ba20a01e27e094"
+    },
+    {
+      "type": "spanOpen",
+      "spanContext": {
+        "traceId": "6bf43fcb396376b8ac569f31e7649ee5",
+        "spanId": "a3ba20a01e27e094"
+      },
+      "invocationId": "c02e9a9b50d3e99b1b8900a84fa648e2",
+      "streamInvocation": "c02e9a9b50d3e99b1b8900a84fa648e2",
+      "spanId": "b4e03656c48c69fb"
+    },
+    {
+      "type": "spanOpen",
+      "spanContext": {
+        "traceId": "6bf43fcb396376b8ac569f31e7649ee5",
+        "spanId": "b4e03656c48c69fb"
+      },
+      "invocationId": "c02e9a9b50d3e99b1b8900a84fa648e2",
+      "streamInvocation": "c02e9a9b50d3e99b1b8900a84fa648e2",
+      "spanId": "7d982c6f92d5f511"
+    },
+    {
+      "type": "spanOpen",
+      "spanContext": {
+        "traceId": "6bf43fcb396376b8ac569f31e7649ee5",
+        "spanId": "3f80366f2c5f5289"
+      },
+      "invocationId": "3ee90c9992b412f555222389ec710698",
+      "streamInvocation": "3ee90c9992b412f555222389ec710698",
+      "spanId": "906b534273cbe65e"
+    },
+    {
+      "type": "attributes",
+      "spanContext": {
+        "traceId": "6bf43fcb396376b8ac569f31e7649ee5",
+        "spanId": "3f80366f2c5f5289"
+      },
+      "invocationId": "3ee90c9992b412f555222389ec710698",
+      "streamInvocation": "3ee90c9992b412f555222389ec710698"
+    },
+    {
+      "type": "log",
+      "spanContext": {
+        "traceId": "6bf43fcb396376b8ac569f31e7649ee5",
+        "spanId": "906b534273cbe65e"
+      },
+      "invocationId": "3ee90c9992b412f555222389ec710698",
+      "streamInvocation": "3ee90c9992b412f555222389ec710698",
+      "message": [
+        "{\"id\":\"B\",\"phase\":\"start\",\"api\":{\"traceId\":\"6bf43fcb396376b8ac569f31e7649ee5\",\"spanId\":\"906b534273cbe65e\",\"traceFlags\":0}}"
+      ]
+    },
+    {
+      "type": "spanOpen",
+      "spanContext": {
+        "traceId": "6bf43fcb396376b8ac569f31e7649ee5",
+        "spanId": "906b534273cbe65e"
+      },
+      "invocationId": "3ee90c9992b412f555222389ec710698",
+      "streamInvocation": "3ee90c9992b412f555222389ec710698",
+      "spanId": "83cc6b9212d1ef09"
+    },
+    {
+      "type": "attributes",
+      "spanContext": {
+        "traceId": "a5d487708bd9ee687e93c4d773d59107",
+        "spanId": "507ccb54ddf62b89"
+      },
+      "invocationId": "0d6786f0e8e42f97d7ca0c2e9a6eb0ce",
+      "streamInvocation": "0d6786f0e8e42f97d7ca0c2e9a6eb0ce"
+    },
+    {
+      "type": "spanClose",
+      "spanContext": {
+        "traceId": "a5d487708bd9ee687e93c4d773d59107",
+        "spanId": "507ccb54ddf62b89"
+      },
+      "invocationId": "0d6786f0e8e42f97d7ca0c2e9a6eb0ce",
+      "streamInvocation": "0d6786f0e8e42f97d7ca0c2e9a6eb0ce"
+    },
+    {
+      "type": "log",
+      "spanContext": {
+        "traceId": "6bf43fcb396376b8ac569f31e7649ee5",
+        "spanId": "e816143b27415717"
+      },
+      "invocationId": "3ee90c9992b412f555222389ec710698",
+      "streamInvocation": "3ee90c9992b412f555222389ec710698",
+      "message": [
+        "{\"id\":\"A\",\"phase\":\"resume\",\"api\":{\"traceId\":\"a5d487708bd9ee687e93c4d773d59107\",\"spanId\":\"e816143b27415717\",\"traceFlags\":0}}"
+      ]
+    },
+    {
+      "type": "attributes",
+      "spanContext": {
+        "traceId": "a5d487708bd9ee687e93c4d773d59107",
+        "spanId": "e816143b27415717"
+      },
+      "invocationId": "0d6786f0e8e42f97d7ca0c2e9a6eb0ce",
+      "streamInvocation": "0d6786f0e8e42f97d7ca0c2e9a6eb0ce"
+    },
+    {
+      "type": "attributes",
+      "spanContext": {
+        "traceId": "a5d487708bd9ee687e93c4d773d59107",
+        "spanId": "4a5f5ed7d41d800a"
+      },
+      "invocationId": "b392ddce46b77759a59407e413e2ac84",
+      "streamInvocation": "b392ddce46b77759a59407e413e2ac84"
+    },
+    {
+      "type": "spanClose",
+      "spanContext": {
+        "traceId": "a5d487708bd9ee687e93c4d773d59107",
+        "spanId": "e816143b27415717"
+      },
+      "invocationId": "0d6786f0e8e42f97d7ca0c2e9a6eb0ce",
+      "streamInvocation": "0d6786f0e8e42f97d7ca0c2e9a6eb0ce"
+    },
+    {
+      "type": "return",
+      "spanContext": {
+        "traceId": "a5d487708bd9ee687e93c4d773d59107",
+        "spanId": "3da564aed7531a46"
+      },
+      "invocationId": "0d6786f0e8e42f97d7ca0c2e9a6eb0ce",
+      "streamInvocation": "0d6786f0e8e42f97d7ca0c2e9a6eb0ce"
+    },
+    {
+      "type": "outcome",
+      "spanContext": {
+        "traceId": "a5d487708bd9ee687e93c4d773d59107",
+        "spanId": "3da564aed7531a46"
+      },
+      "invocationId": "0d6786f0e8e42f97d7ca0c2e9a6eb0ce",
+      "streamInvocation": "0d6786f0e8e42f97d7ca0c2e9a6eb0ce"
+    },
+    {
+      "type": "spanClose",
+      "spanContext": {
+        "traceId": "a5d487708bd9ee687e93c4d773d59107",
+        "spanId": "4a5f5ed7d41d800a"
+      },
+      "invocationId": "b392ddce46b77759a59407e413e2ac84",
+      "streamInvocation": "b392ddce46b77759a59407e413e2ac84"
+    },
+    {
+      "type": "spanClose",
+      "spanContext": {
+        "traceId": "a5d487708bd9ee687e93c4d773d59107",
+        "spanId": "301fe10070474751"
+      },
+      "invocationId": "b392ddce46b77759a59407e413e2ac84",
+      "streamInvocation": "b392ddce46b77759a59407e413e2ac84"
+    },
+    {
+      "type": "return",
+      "spanContext": {
+        "traceId": "a5d487708bd9ee687e93c4d773d59107",
+        "spanId": "2fff4b66e1ed0344"
+      },
+      "invocationId": "b392ddce46b77759a59407e413e2ac84",
+      "streamInvocation": "b392ddce46b77759a59407e413e2ac84"
+    },
+    {
+      "type": "attributes",
+      "spanContext": {
+        "traceId": "a5d487708bd9ee687e93c4d773d59107",
+        "spanId": "d02c189c81d196b0"
+      },
+      "invocationId": "b392ddce46b77759a59407e413e2ac84",
+      "streamInvocation": "b392ddce46b77759a59407e413e2ac84"
+    },
+    {
+      "type": "spanClose",
+      "spanContext": {
+        "traceId": "a5d487708bd9ee687e93c4d773d59107",
+        "spanId": "d02c189c81d196b0"
+      },
+      "invocationId": "b392ddce46b77759a59407e413e2ac84",
+      "streamInvocation": "b392ddce46b77759a59407e413e2ac84"
+    },
+    {
+      "type": "outcome",
+      "spanContext": {
+        "traceId": "a5d487708bd9ee687e93c4d773d59107",
+        "spanId": "2fff4b66e1ed0344"
+      },
+      "invocationId": "b392ddce46b77759a59407e413e2ac84",
+      "streamInvocation": "b392ddce46b77759a59407e413e2ac84"
+    },
+    {
+      "type": "attributes",
+      "spanContext": {
+        "traceId": "6bf43fcb396376b8ac569f31e7649ee5",
+        "spanId": "83cc6b9212d1ef09"
+      },
+      "invocationId": "3ee90c9992b412f555222389ec710698",
+      "streamInvocation": "3ee90c9992b412f555222389ec710698"
+    },
+    {
+      "type": "spanClose",
+      "spanContext": {
+        "traceId": "6bf43fcb396376b8ac569f31e7649ee5",
+        "spanId": "83cc6b9212d1ef09"
+      },
+      "invocationId": "3ee90c9992b412f555222389ec710698",
+      "streamInvocation": "3ee90c9992b412f555222389ec710698"
+    },
+    {
+      "type": "log",
+      "spanContext": {
+        "traceId": "6bf43fcb396376b8ac569f31e7649ee5",
+        "spanId": "906b534273cbe65e"
+      },
+      "invocationId": "3ee90c9992b412f555222389ec710698",
+      "streamInvocation": "3ee90c9992b412f555222389ec710698",
+      "message": [
+        "{\"id\":\"B\",\"phase\":\"resume\",\"api\":{\"traceId\":\"6bf43fcb396376b8ac569f31e7649ee5\",\"spanId\":\"906b534273cbe65e\",\"traceFlags\":0}}"
+      ]
+    },
+    {
+      "type": "attributes",
+      "spanContext": {
+        "traceId": "6bf43fcb396376b8ac569f31e7649ee5",
+        "spanId": "7d982c6f92d5f511"
+      },
+      "invocationId": "c02e9a9b50d3e99b1b8900a84fa648e2",
+      "streamInvocation": "c02e9a9b50d3e99b1b8900a84fa648e2"
+    },
+    {
+      "type": "attributes",
+      "spanContext": {
+        "traceId": "6bf43fcb396376b8ac569f31e7649ee5",
+        "spanId": "906b534273cbe65e"
+      },
+      "invocationId": "3ee90c9992b412f555222389ec710698",
+      "streamInvocation": "3ee90c9992b412f555222389ec710698"
+    },
+    {
+      "type": "spanClose",
+      "spanContext": {
+        "traceId": "6bf43fcb396376b8ac569f31e7649ee5",
+        "spanId": "906b534273cbe65e"
+      },
+      "invocationId": "3ee90c9992b412f555222389ec710698",
+      "streamInvocation": "3ee90c9992b412f555222389ec710698"
+    },
+    {
+      "type": "return",
+      "spanContext": {
+        "traceId": "6bf43fcb396376b8ac569f31e7649ee5",
+        "spanId": "3f80366f2c5f5289"
+      },
+      "invocationId": "3ee90c9992b412f555222389ec710698",
+      "streamInvocation": "3ee90c9992b412f555222389ec710698"
+    },
+    {
+      "type": "outcome",
+      "spanContext": {
+        "traceId": "6bf43fcb396376b8ac569f31e7649ee5",
+        "spanId": "3f80366f2c5f5289"
+      },
+      "invocationId": "3ee90c9992b412f555222389ec710698",
+      "streamInvocation": "3ee90c9992b412f555222389ec710698"
+    },
+    {
+      "type": "spanClose",
+      "spanContext": {
+        "traceId": "6bf43fcb396376b8ac569f31e7649ee5",
+        "spanId": "7d982c6f92d5f511"
+      },
+      "invocationId": "c02e9a9b50d3e99b1b8900a84fa648e2",
+      "streamInvocation": "c02e9a9b50d3e99b1b8900a84fa648e2"
+    },
+    {
+      "type": "spanClose",
+      "spanContext": {
+        "traceId": "6bf43fcb396376b8ac569f31e7649ee5",
+        "spanId": "b4e03656c48c69fb"
+      },
+      "invocationId": "c02e9a9b50d3e99b1b8900a84fa648e2",
+      "streamInvocation": "c02e9a9b50d3e99b1b8900a84fa648e2"
+    },
+    {
+      "type": "return",
+      "spanContext": {
+        "traceId": "6bf43fcb396376b8ac569f31e7649ee5",
+        "spanId": "d3aa2a1a3a0bb1ae"
+      },
+      "invocationId": "c02e9a9b50d3e99b1b8900a84fa648e2",
+      "streamInvocation": "c02e9a9b50d3e99b1b8900a84fa648e2"
+    },
+    {
+      "type": "attributes",
+      "spanContext": {
+        "traceId": "6bf43fcb396376b8ac569f31e7649ee5",
+        "spanId": "a3ba20a01e27e094"
+      },
+      "invocationId": "c02e9a9b50d3e99b1b8900a84fa648e2",
+      "streamInvocation": "c02e9a9b50d3e99b1b8900a84fa648e2"
+    },
+    {
+      "type": "spanClose",
+      "spanContext": {
+        "traceId": "6bf43fcb396376b8ac569f31e7649ee5",
+        "spanId": "a3ba20a01e27e094"
+      },
+      "invocationId": "c02e9a9b50d3e99b1b8900a84fa648e2",
+      "streamInvocation": "c02e9a9b50d3e99b1b8900a84fa648e2"
+    },
+    {
+      "type": "outcome",
+      "spanContext": {
+        "traceId": "6bf43fcb396376b8ac569f31e7649ee5",
+        "spanId": "d3aa2a1a3a0bb1ae"
+      },
+      "invocationId": "c02e9a9b50d3e99b1b8900a84fa648e2",
+      "streamInvocation": "c02e9a9b50d3e99b1b8900a84fa648e2"
+    }
+  ]
+}

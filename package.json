@@ -1,0 +1,13 @@
+{
+  "name": "workerd-console-trace-repro",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Reproduce Durable Object console metadata diverging from the active span",
+  "scripts": { "start": "node repro.mjs" },
+  "engines": { "node": ">=22" },
+  "dependencies": {
+    "miniflare": "4.20260714.0",
+    "workerd": "1.20261015.1"
+  }
+}
